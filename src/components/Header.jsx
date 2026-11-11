@@ -1,9 +1,9 @@
 // Header component
-function Header() {
+function Header(props) {
   return (
     <div>
-      <h1>My React Website</h1>
-      <p>Learning React step by step</p>
+      <h1>{props.title}</h1>
+      <p>{props.description}</p>
     </div>
   );
 }
