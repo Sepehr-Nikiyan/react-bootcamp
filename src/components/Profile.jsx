@@ -1,9 +1,9 @@
-function Profile({ name, age, isDeveloper }) {
+function Profile({user}) {
     return(
     <div>
-        <div>Name: {name}</div>
-        <div>Age: {age}</div>
-        <div>Developer: {String(isDeveloper)}</div>
+        <div>Name: {user.name}</div>
+        <div>Age: {user.age}</div>
+        <div>Job: {user.job}</div>
     </div>
     );
 }
