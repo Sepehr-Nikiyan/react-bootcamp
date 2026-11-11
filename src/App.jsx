@@ -12,6 +12,9 @@ function App() {
     age: 25,
     job: "Developer"
   };
+
+  const skills = ["HTML", "CSS", "JavaScript", "React"];
+
   return (
     <div>
       <Header title="My React Website" description="Learning React step by step" />
@@ -23,7 +26,7 @@ function App() {
       <h1>Hello, {name}!</h1>
       <p>Welcome to React.</p>
 
-      <Profile user={user} />
+      <Profile user={user} skills={skills}/>
 
       <Footer />
     </div>
