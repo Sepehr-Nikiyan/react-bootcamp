@@ -26,7 +26,7 @@ function App() {
       <h1>Hello, {name}!</h1>
       <p>Welcome to React.</p>
 
-      <Profile user={user} skills={skills}/>
+      <Profile user={user} skills={skills} role="Manager"/>
 
       <Footer />
     </div>
