@@ -17,6 +17,9 @@ function App() {
     console.log(event.target);
     alert(buttonName);
   }
+  function increaseCount() {
+    setCount(count + 1);
+  }
 
   const name = "Sepehr";
 
@@ -64,6 +67,7 @@ function App() {
       <button onClick={(event)=>{handleButtonClick(event,"Second Button")}}>Second Button</button>
 
       <h3>count: {count}</h3>
+      <button onClick={increaseCount}>Increase</button>
 
       <Card>
         <h3>This is my first card.</h3>
