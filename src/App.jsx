@@ -12,6 +12,11 @@ function App() {
   function handleEvent(event) {
     console.log(event.target);
   }
+  function handleButtonClick(event,buttonName) {
+    console.log(event.target);
+    alert(buttonName);
+  }
+
   const name = "Sepehr";
 
   const user = {
@@ -49,6 +54,9 @@ function App() {
       <h1>Hello, {name}!</h1>
       <p>Welcome to React.</p>
       <button onClick={handleEvent}>Show Event Target</button>
+
+      <button onClick={(event)=>{handleButtonClick(event,"First Button")}}>First Button</button>
+      <button onClick={(event)=>{handleButtonClick(event,"Second Button")}}>Second Button</button>
 
       <Card>
         <h3>This is my first card.</h3>
