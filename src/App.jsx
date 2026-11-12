@@ -25,6 +25,9 @@ function App() {
     // setCount(count - 1);
     setCount((prevoiusValue) => prevoiusValue - 1 )
   }
+  function changeName() {
+    setUserName("John");
+  }
 
   const name = "Sepehr";
 
@@ -50,6 +53,7 @@ function App() {
 
   //useState practice
   const [count,setCount] = useState(0);
+  const [userName,setUserName] = useState("Sepehr");
 
   return (
     <div>
@@ -70,6 +74,9 @@ function App() {
       <button onClick={(event)=>{handleButtonClick(event,"First Button")}}>First Button</button>
       <br />
       <button onClick={(event)=>{handleButtonClick(event,"Second Button")}}>Second Button</button>
+
+      <h3>Username: {userName}</h3>
+      <button onClick={changeName}>Change Name</button>
 
       <h3>count: {count}</h3>
       <button onClick={increaseCount}>Increase</button>
