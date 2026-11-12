@@ -9,6 +9,9 @@ function App() {
   function handleClick(message) {
     alert(message);
   }
+  function handleEvent(event) {
+    console.log(event.target);
+  }
   const name = "Sepehr";
 
   const user = {
@@ -45,6 +48,7 @@ function App() {
 
       <h1>Hello, {name}!</h1>
       <p>Welcome to React.</p>
+      <button onClick={handleEvent}>Show Event Target</button>
 
       <Card>
         <h3>This is my first card.</h3>
