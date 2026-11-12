@@ -20,6 +20,9 @@ function App() {
   function increaseCount() {
     setCount(count + 1);
   }
+  function decreaseCount() {
+    setCount(count - 1);
+  }
 
   const name = "Sepehr";
 
@@ -68,6 +71,7 @@ function App() {
 
       <h3>count: {count}</h3>
       <button onClick={increaseCount}>Increase</button>
+      <button onClick={decreaseCount}>Decrease</button>
 
       <Card>
         <h3>This is my first card.</h3>
