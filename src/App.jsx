@@ -20,9 +20,18 @@ function App() {
 
   const isDeveloper = true;
 
+  let loginMessage;
+
+  if (isLoggedIn === true) {
+    loginMessage = "Welcome Back!"
+  }else{
+    loginMessage = "Please Login"
+  };
+
   return (
     <div>
-      {isLoggedIn ? <h2>Welcome Back!</h2> : <h2>Please Login</h2>}
+      {/* {isLoggedIn ? <h2>Welcome Back!</h2> : <h2>Please Login</h2>} */}
+      <h2>{loginMessage}</h2>
       {isDeveloper && <p>You are a developer!</p>}
 
       <Header title="My React Website" description="Learning React step by step" />
