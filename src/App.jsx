@@ -18,9 +18,12 @@ function App() {
 
   const isLoggedIn = false;
 
+  const isDeveloper = true;
+
   return (
     <div>
       {isLoggedIn ? <h2>Welcome Back!</h2> : <h2>Please Login</h2>}
+      {isDeveloper && <p>You are a developer!</p>}
 
       <Header title="My React Website" description="Learning React step by step" />
       <Header title="My Portfolio" description="Learning React step by step" />
