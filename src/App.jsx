@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Profile from "./components/Profile";
 import Card from "./components/Card";
+import { useState } from "react";
 
 // Main App component
 function App() {
@@ -39,6 +40,9 @@ function App() {
     loginMessage = "Please Login"
   };
 
+  //useState practice
+  const [count,setCount] = useState(0);
+
   return (
     <div>
       {/* {isLoggedIn ? <h2>Welcome Back!</h2> : <h2>Please Login</h2>} */}
@@ -54,9 +58,12 @@ function App() {
       <h1>Hello, {name}!</h1>
       <p>Welcome to React.</p>
       <button onClick={handleEvent}>Show Event Target</button>
-
+      <br />
       <button onClick={(event)=>{handleButtonClick(event,"First Button")}}>First Button</button>
+      <br />
       <button onClick={(event)=>{handleButtonClick(event,"Second Button")}}>Second Button</button>
+
+      <h3>count: {count}</h3>
 
       <Card>
         <h3>This is my first card.</h3>
