@@ -16,8 +16,12 @@ function App() {
 
   const skills = ["HTML", "CSS", "JavaScript", "React"];
 
+  const isLoggedIn = false;
+
   return (
     <div>
+      {isLoggedIn ? <h2>Welcome Back!</h2> : <h2>Please Login</h2>}
+
       <Header title="My React Website" description="Learning React step by step" />
       <Header title="My Portfolio" description="Learning React step by step" />
       <Header title="My Blog" description="Learning React step by step" />
