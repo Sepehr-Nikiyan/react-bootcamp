@@ -18,10 +18,12 @@ function App() {
     alert(buttonName);
   }
   function increaseCount() {
-    setCount(count + 1);
+    // setCount(count + 1);
+    setCount((previousValue) => previousValue + 1);
   }
   function decreaseCount() {
-    setCount(count - 1);
+    // setCount(count - 1);
+    setCount((prevoiusValue) => prevoiusValue - 1 )
   }
 
   const name = "Sepehr";
