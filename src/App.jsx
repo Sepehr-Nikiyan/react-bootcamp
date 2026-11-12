@@ -28,6 +28,9 @@ function App() {
   function changeName() {
     setUserName("John");
   }
+  function toggleVisibility() {
+    setIsVisible((previousValue) => !previousValue );
+  }
 
   const name = "Sepehr";
 
@@ -54,6 +57,7 @@ function App() {
   //useState practice
   const [count,setCount] = useState(0);
   const [userName,setUserName] = useState("Sepehr");
+  const [isVisible,setIsVisible] = useState(true);
 
   return (
     <div>
@@ -81,6 +85,11 @@ function App() {
       <h3>count: {count}</h3>
       <button onClick={increaseCount}>Increase</button>
       <button onClick={decreaseCount}>Decrease</button>
+      
+      <br />
+
+      {isVisible && <p>This text is visible!</p>}
+      <button onClick={toggleVisibility}>Toggle the text</button>
 
       <Card>
         <h3>This is my first card.</h3>
