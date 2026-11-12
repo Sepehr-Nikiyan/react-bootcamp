@@ -6,8 +6,8 @@ import Card from "./components/Card";
 
 // Main App component
 function App() {
-  function handleClick() {
-    alert("Button clicked!");
+  function handleClick(message) {
+    alert(message);
   }
   const name = "Sepehr";
 
@@ -50,13 +50,13 @@ function App() {
         <h3>This is my first card.</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi, repudiandae?</p>
       </Card>
-      <button onClick={handleClick}>click here</button>
+      <button onClick={() => handleClick("You clicked the first button!")}>click here</button>
 
       <Card>
         <h3>This is a test list of my skills.</h3>
         <ul>{skills.slice(0,3).map((skill) => {return <li key={skill}>{skill}</li>})}</ul>
       </Card>
-      <button onClick={handleClick}>click here</button>
+      <button onClick={() => handleClick("You clicked the second button!")}>click here</button>
 
       <Profile user={user} skills={skills} role="Manager" />
 
