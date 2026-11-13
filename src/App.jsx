@@ -13,7 +13,7 @@ function App() {
   function handleEvent(event) {
     console.log(event.target);
   }
-  function handleButtonClick(event,buttonName) {
+  function handleButtonClick(event, buttonName) {
     console.log(event.target);
     alert(buttonName);
   }
@@ -23,19 +23,25 @@ function App() {
   }
   function decreaseCount() {
     // setCount(count - 1);
-    setCount((prevoiusValue) => prevoiusValue - 1 )
+    setCount((prevoiusValue) => prevoiusValue - 1)
   }
   function changeName() {
     setUserName("John");
   }
   function toggleVisibility() {
-    setIsVisible((previousValue) => !previousValue );
+    setIsVisible((previousValue) => !previousValue);
   }
   function handleChangeName(event) {
     setInputName(event.target.value);
   }
   function resetInput() {
     setInputName("");
+  }
+  function changeProfileName() {
+    setProfile({
+      ...profile,
+      name: "john"
+    });
   }
 
   const name = "Sepehr";
@@ -56,15 +62,20 @@ function App() {
 
   if (isLoggedIn === true) {
     loginMessage = "Welcome Back!"
-  }else{
+  } else {
     loginMessage = "Please Login"
   };
 
   //useState practice
-  const [count,setCount] = useState(0);
-  const [userName,setUserName] = useState("Sepehr");
-  const [isVisible,setIsVisible] = useState(true);
-  const [inputName,setInputName] = useState("");
+  const [count, setCount] = useState(0);
+  const [userName, setUserName] = useState("Sepehr");
+  const [isVisible, setIsVisible] = useState(true);
+  const [inputName, setInputName] = useState("");
+  const [profile, setProfile] = useState({
+    name: "Sepehr",
+    age: 25,
+    job: "Developer",
+  });
 
   return (
     <div>
@@ -82,9 +93,9 @@ function App() {
       <p>Welcome to React.</p>
       <button onClick={handleEvent}>Show Event Target</button>
       <br />
-      <button onClick={(event)=>{handleButtonClick(event,"First Button")}}>First Button</button>
+      <button onClick={(event) => { handleButtonClick(event, "First Button") }}>First Button</button>
       <br />
-      <button onClick={(event)=>{handleButtonClick(event,"Second Button")}}>Second Button</button>
+      <button onClick={(event) => { handleButtonClick(event, "Second Button") }}>Second Button</button>
 
       <br />
       <br />
@@ -103,7 +114,7 @@ function App() {
       <h3>count: {count}</h3>
       <button onClick={increaseCount}>Increase</button>
       <button onClick={decreaseCount}>Decrease</button>
-      
+
       <br />
 
       {isVisible && <p>This text is visible!</p>}
@@ -117,11 +128,14 @@ function App() {
 
       <Card>
         <h3>This is a test list of my skills.</h3>
-        <ul>{skills.slice(0,3).map((skill) => {return <li key={skill}>{skill}</li>})}</ul>
+        <ul>{skills.slice(0, 3).map((skill) => { return <li key={skill}>{skill}</li> })}</ul>
       </Card>
       <button onClick={() => handleClick("You clicked the second button!")}>click here</button>
 
       <Profile user={user} skills={skills} role="Manager" />
+
+      <h3>my profile name: {profile.name}</h3>
+      <button onClick={changeProfileName}>change name</button>
 
       <Footer />
     </div>
