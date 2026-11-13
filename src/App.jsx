@@ -34,6 +34,9 @@ function App() {
   function handleChangeName(event) {
     setInputName(event.target.value);
   }
+  function resetInput() {
+    setInputName("");
+  }
 
   const name = "Sepehr";
 
@@ -85,10 +88,13 @@ function App() {
 
       <br />
       <br />
+      <br />
 
       <input type="text" value={inputName} onChange={handleChangeName} />
       <h3>input Name: {inputName}</h3>
+      <button onClick={resetInput}>Reset</button>
 
+      <br />
       <br />
 
       <h3>Username: {userName}</h3>
