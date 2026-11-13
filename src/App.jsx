@@ -44,10 +44,19 @@ function App() {
     });
   }
   function addSkill() {
-    setMySkills([...mySkills,"React"]);
+    setMySkills([...mySkills, "React"]);
   }
   function removeSkill() {
     setMySkills(mySkills.filter((skill) => skill.toLowerCase() !== "css"));
+  }
+  function updateSkill() {
+    setMySkills(mySkills.map((skill) => {
+      if (skill === "JavaScript") {
+        return "TypeScript"
+      }else{
+        return skill
+      }
+    }));
   }
 
   const name = "Sepehr";
@@ -82,7 +91,7 @@ function App() {
     age: 25,
     job: "Developer",
   });
-  const [mySkills,setMySkills] = useState(["HTML","CSS","JavaScript"])
+  const [mySkills, setMySkills] = useState(["HTML", "CSS", "JavaScript"])
 
   return (
     <div>
@@ -150,10 +159,11 @@ function App() {
       <div>
         <ul>{mySkills.map(
           (skill) => <li key={skill}>{skill}</li>
-          )}
+        )}
         </ul>
         <button onClick={addSkill}>add skill</button>
         <button onClick={removeSkill}>remove skill</button>
+        <button onClick={updateSkill}>update skills</button>
       </div>
 
       <Footer />
