@@ -58,6 +58,13 @@ function App() {
       }
     }));
   }
+  function handleSkillChange(event) {
+    setNewSkill(event.target.value);
+  }
+  function addNewSkill() {
+    setMySkills([...mySkills,newSkill]);
+    setNewSkill("");
+  }
 
   const name = "Sepehr";
 
@@ -91,7 +98,8 @@ function App() {
     age: 25,
     job: "Developer",
   });
-  const [mySkills, setMySkills] = useState(["HTML", "CSS", "JavaScript"])
+  const [mySkills, setMySkills] = useState(["HTML", "CSS", "JavaScript"]);
+  const [newSkill, setNewSkill] = useState("");
 
   return (
     <div>
@@ -157,6 +165,11 @@ function App() {
       <br />
 
       <div>
+        <input type="text" value={newSkill} onChange={handleSkillChange}/>
+        <button onClick={addNewSkill}>Add New Skill</button>
+
+        <br />
+
         <ul>{mySkills.map(
           (skill) => <li key={skill}>{skill}</li>
         )}
@@ -164,6 +177,7 @@ function App() {
         <button onClick={addSkill}>add skill</button>
         <button onClick={removeSkill}>remove skill</button>
         <button onClick={updateSkill}>update skills</button>
+        
       </div>
 
       <Footer />
