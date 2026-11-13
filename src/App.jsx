@@ -43,6 +43,9 @@ function App() {
       name: "john"
     });
   }
+  function addSkill() {
+    setMySkills([...mySkills,"React"]);
+  }
 
   const name = "Sepehr";
 
@@ -76,6 +79,7 @@ function App() {
     age: 25,
     job: "Developer",
   });
+  const [mySkills,setMySkills] = useState(["HTML","CSS","JavaScript"])
 
   return (
     <div>
@@ -136,6 +140,17 @@ function App() {
 
       <h3>my profile name: {profile.name}</h3>
       <button onClick={changeProfileName}>change name</button>
+
+      <br />
+      <br />
+
+      <div>
+        <ul>{mySkills.map(
+          (skill) => <li key={skill}>{skill}</li>
+          )}
+        </ul>
+        <button onClick={addSkill}>add skill</button>
+      </div>
 
       <Footer />
     </div>
