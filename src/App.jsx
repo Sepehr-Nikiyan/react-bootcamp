@@ -53,7 +53,7 @@ function App() {
     setMySkills(mySkills.map((skill) => {
       if (skill === "JavaScript") {
         return "TypeScript"
-      }else{
+      } else {
         return skill
       }
     }));
@@ -62,8 +62,12 @@ function App() {
     setNewSkill(event.target.value);
   }
   function addNewSkill() {
-    setMySkills([...mySkills,newSkill]);
-    setNewSkill("");
+    if (newSkill.trim() === "") {
+      alert("This field can not be empty...");
+    } else {
+      setMySkills([...mySkills, newSkill]);
+      setNewSkill("");
+    }
   }
 
   const name = "Sepehr";
@@ -165,7 +169,7 @@ function App() {
       <br />
 
       <div>
-        <input type="text" value={newSkill} onChange={handleSkillChange}/>
+        <input type="text" value={newSkill} onChange={handleSkillChange} />
         <button onClick={addNewSkill}>Add New Skill</button>
 
         <br />
@@ -177,7 +181,7 @@ function App() {
         <button onClick={addSkill}>add skill</button>
         <button onClick={removeSkill}>remove skill</button>
         <button onClick={updateSkill}>update skills</button>
-        
+
       </div>
 
       <Footer />
