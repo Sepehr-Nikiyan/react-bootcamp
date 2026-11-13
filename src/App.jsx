@@ -31,6 +31,9 @@ function App() {
   function toggleVisibility() {
     setIsVisible((previousValue) => !previousValue );
   }
+  function handleChangeName(event) {
+    setInputName(event.target.value);
+  }
 
   const name = "Sepehr";
 
@@ -58,6 +61,7 @@ function App() {
   const [count,setCount] = useState(0);
   const [userName,setUserName] = useState("Sepehr");
   const [isVisible,setIsVisible] = useState(true);
+  const [inputName,setInputName] = useState("");
 
   return (
     <div>
@@ -78,6 +82,14 @@ function App() {
       <button onClick={(event)=>{handleButtonClick(event,"First Button")}}>First Button</button>
       <br />
       <button onClick={(event)=>{handleButtonClick(event,"Second Button")}}>Second Button</button>
+
+      <br />
+      <br />
+
+      <input type="text" value={inputName} onChange={handleChangeName} />
+      <h3>input Name: {inputName}</h3>
+
+      <br />
 
       <h3>Username: {userName}</h3>
       <button onClick={changeName}>Change Name</button>
