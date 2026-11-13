@@ -46,6 +46,9 @@ function App() {
   function addSkill() {
     setMySkills([...mySkills,"React"]);
   }
+  function removeSkill() {
+    setMySkills(mySkills.filter((skill) => skill.toLowerCase() !== "css"));
+  }
 
   const name = "Sepehr";
 
@@ -150,6 +153,7 @@ function App() {
           )}
         </ul>
         <button onClick={addSkill}>add skill</button>
+        <button onClick={removeSkill}>remove skill</button>
       </div>
 
       <Footer />
