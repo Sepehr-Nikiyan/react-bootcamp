@@ -106,6 +106,11 @@ function App() {
   const [mySkills, setMySkills] = useState(["HTML", "CSS", "JavaScript"]);
   const [newSkill, setNewSkill] = useState("");
 
+  //for fetching data
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
 
 
   //useEffect practice
@@ -121,6 +126,40 @@ function App() {
   useEffect(() => {
     document.title = `count: ${count}`
   }, [count]);
+
+  //useEffect for fetching data
+  useEffect(() => {
+    async function getPosts() {
+      try {
+        const request = fetch("https://jsonplaceholder.typicode.com/posts");
+        const response = await request;
+        if (!response.ok) {
+          throw new Error("Failed fetching data");
+        }
+        const data = await response.json();
+
+        setPosts(data.slice(0, 5));
+      } catch (error) {
+        setError(error.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+    getPosts();
+  }, []);
+  
+  //useEffect-cleanup
+  useEffect(() => {
+      function handleResize() {
+       console.log("resize:",window.innerWidth)
+      }
+      window.addEventListener("resize",handleResize);
+
+      return () => {
+        window.removeEventListener("resize",handleResize);
+        console.log("Event listener removed")
+      } 
+  },[]);
 
   return (
     <div>
@@ -199,6 +238,26 @@ function App() {
         <button onClick={removeSkill}>remove skill</button>
         <button onClick={updateSkill}>update skills</button>
 
+      </div>
+
+
+      <br />
+      <br />
+      <br />
+
+      <h2>POSTS</h2>
+      <div>
+        {loading && <p>loading posts...</p>}
+
+        {posts.map((post) => {
+          return <Card key={post.id}>
+            <h3>{post.title}</h3>
+            <p>{post.body}</p>
+          </Card>
+        })}
+
+
+        {error && <p>{error}</p>}
       </div>
 
       <Footer />
