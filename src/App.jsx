@@ -129,9 +129,13 @@ function App() {
 
   //useEffect for fetching data
   useEffect(() => {
+    const controller = new AbortController();
+
     async function getPosts() {
       try {
-        const request = fetch("https://jsonplaceholder.typicode.com/posts");
+        const request = fetch("https://jsonplaceholder.typicode.com/posts",{
+          signal: controller.signal
+        });
         const response = await request;
         if (!response.ok) {
           throw new Error("Failed fetching data");
@@ -140,12 +144,21 @@ function App() {
 
         setPosts(data.slice(0, 5));
       } catch (error) {
-        setError(error.message)
+        if (error.name !== "AbortError" ) {
+          setError(error.message)
+        }
       } finally {
-        setLoading(false)
+        if (!controller.signal.aborted) {
+          setLoading(false)
+        }
       }
     }
     getPosts();
+
+    return ()=>{
+      controller.abort();
+      console.log("Request Cancelled.");
+    }
   }, []);
   
   //useEffect-cleanup
