@@ -1,4 +1,4 @@
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -109,7 +109,18 @@ function App() {
 
 
   //useEffect practice
-  useEffect(() => {console.log("Count changed:", count);}, [count]);
+  useEffect(() => {
+    console.log("Count changed:", count)
+  }, [count]);
+  useEffect(() => {
+    console.log("Component rendered")
+  });
+  useEffect(() => {
+    console.log("Component loaded")
+  }, []);
+  useEffect(() => {
+    document.title = `count: ${count}`
+  }, [count]);
 
   return (
     <div>
