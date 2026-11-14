@@ -46,8 +46,9 @@ function App() {
   function addSkill() {
     setMySkills([...mySkills, "React"]);
   }
-  function removeSkill() {
-    setMySkills(mySkills.filter((skill) => skill.toLowerCase() !== "css"));
+  function removeSkill(event) {
+    const selectedSkill = event.target.textContent;
+    setMySkills(mySkills.filter((skill) => skill !== selectedSkill));
   }
   function updateSkill() {
     setMySkills(mySkills.map((skill) => {
@@ -175,7 +176,7 @@ function App() {
         <br />
 
         <ul>{mySkills.map(
-          (skill) => <li key={skill}>{skill}</li>
+          (skill) => <li key={skill} onDoubleClick={removeSkill}>{skill}</li>
         )}
         </ul>
         <button onClick={addSkill}>add skill</button>
