@@ -1,9 +1,9 @@
+import { useState , useEffect } from "react";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Profile from "./components/Profile";
 import Card from "./components/Card";
-import { useState } from "react";
 
 // Main App component
 function App() {
@@ -105,6 +105,11 @@ function App() {
   });
   const [mySkills, setMySkills] = useState(["HTML", "CSS", "JavaScript"]);
   const [newSkill, setNewSkill] = useState("");
+
+
+
+  //useEffect practice
+  useEffect(() => {console.log("Count changed:", count);}, [count]);
 
   return (
     <div>
