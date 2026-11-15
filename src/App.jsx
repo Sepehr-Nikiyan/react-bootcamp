@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import User from "./pages/User";
+import Login from "./pages/Login";
 
 // Main App component
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <div>
       <Navbar />
       <Routes>
+        <Route path="/Login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
         <Route path="/users/:id" element={<User />} />
