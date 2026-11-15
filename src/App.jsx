@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Profile from "./components/Profile";
 import Card from "./components/Card";
+import NotFound from "./pages/NotFound";
 //Routes
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
 
