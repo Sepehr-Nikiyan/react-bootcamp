@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 //Routes
 import Home from "./pages/Home";
 import About from "./pages/About";
+import User from "./pages/User";
 
 // Main App component
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
+        <Route path="/users/:id" element={<User />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
