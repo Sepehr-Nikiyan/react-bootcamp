@@ -11,6 +11,7 @@ import DashboardHome from "./pages/DashboardHome";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import RedirectPage from "./pages/RedirectPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 // Main App component
 function App() {
@@ -31,13 +32,14 @@ function App() {
         {/* users page */}
         <Route path="/users/:id" element={<User />} />
 
-        <Route path="/dashboard" element={<Dashboard />}>
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}>
           <Route index element={<DashboardHome />} />
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<Settings />} />
         </Route>
 
-        <Route path="/redirect" element={<RedirectPage />}/>
+
+        <Route path="/redirect" element={<RedirectPage />} />
 
         {/* 404-not found */}
         <Route path="*" element={<NotFound />} />
