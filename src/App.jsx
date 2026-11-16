@@ -12,6 +12,7 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import RedirectPage from "./pages/RedirectPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Products from "./components/Products";
 
 // Main App component
 function App() {
@@ -37,6 +38,9 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<Settings />} />
         </Route>
+
+
+        <Route path="/products" element={<Products />}/>
 
 
         <Route path="/redirect" element={<RedirectPage />} />
