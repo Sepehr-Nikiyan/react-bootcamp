@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import DashboardHome from "./pages/DashboardHome";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
+import RedirectPage from "./pages/RedirectPage";
 
 // Main App component
 function App() {
@@ -35,6 +36,8 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<Settings />} />
         </Route>
+
+        <Route path="/redirect" element={<RedirectPage />}/>
 
         {/* 404-not found */}
         <Route path="*" element={<NotFound />} />
