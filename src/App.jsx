@@ -7,6 +7,7 @@ import About from "./pages/About";
 import User from "./pages/User";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import DashboardHome from "./pages/DashboardHome";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/users/:id" element={<User />} />
 
         <Route path="/dashboard" element={<Dashboard />}>
+          <Route index element={<DashboardHome />} />
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<Settings />} />
         </Route>
