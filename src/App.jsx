@@ -13,6 +13,7 @@ import Settings from "./pages/Settings";
 import RedirectPage from "./pages/RedirectPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Products from "./components/Products";
+import ContactForm from "./components/ContactForm";
 
 // Main App component
 function App() {
@@ -29,6 +30,8 @@ function App() {
 
         {/* about page */}
         <Route path="/About" element={<About />} />
+
+        <Route path="/contact-form" element={<ContactForm />} />
 
         {/* users page */}
         <Route path="/users/:id" element={<User />} />
